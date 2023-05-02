@@ -32,25 +32,26 @@ export class MyServiceService {
     passOutYear: '',
   };
 
-
+  BASE_URL = "https://spark-management-api.onrender.com"
+  // BASE_URL = "http://localhost:3000"
 
   constructor(private _http: HttpClient) { }
   
   submitRegister(body:any){
-    return this._http.post('http://localhost:3000/users/register', body,{
+    return this._http.post(this.BASE_URL+'/users/register', body,{
       observe:'body'
     });
   }
 
   login(body:any){
-    return this._http.post('http://localhost:3000/users/login', body,{
+    return this._http.post(this.BASE_URL+'/users/login', body,{
       observe:'body'
     });
   }
 
   getUserName() {
   
-      return this._http.get('http://localhost:3000/users/email', {
+      return this._http.get(this.BASE_URL+'/users/email', {
         observe: 'body',
         params: new HttpParams().append('token', JSON.stringify( localStorage.getItem('token')))
       });
@@ -58,73 +59,73 @@ export class MyServiceService {
   }
 
   sendEmail(body:any){
-    return this._http.post('http://localhost:3000/users/sendmail', body,{
+    return this._http.post(this.BASE_URL+'/users/sendmail', body,{
       observe:'body'
     });
   }
 
   submitSecurity(body:any){
-    return this._http.post('http://localhost:3000/users/security', body,{
+    return this._http.post(this.BASE_URL+'/users/security', body,{
       observe:'body'
     });
   }
 
   submitAdmissionForm(body:any){
-    return this._http.post('http://localhost:3000/users/admissionForm', body,{
+    return this._http.post(this.BASE_URL+'/users/admissionForm', body,{
       observe:'body'
     });
   }
 
   initialFetchData() {
-    return this._http.get('http://localhost:3000/users/initialFetch', {
+    return this._http.get(this.BASE_URL+'/users/initialFetch', {
       observe: 'body'
     }); 
   }
 
   studentFilterResult(body:any){
-    return this._http.post('http://localhost:3000/users/studentFilter', body,{
+    return this._http.post(this.BASE_URL+'/users/studentFilter', body,{
       observe:'body'
     });
   }
 
   deleteStudentRecord(body:any){
-    return this._http.post('http://localhost:3000/users/deleteStudent', body,{
+    return this._http.post(this.BASE_URL+'/users/deleteStudent', body,{
       observe:'body'
     });
   }
   
   updateStudentRecord(body:any){
-    return this._http.post('http://localhost:3000/users/updateStudent', body,{
+    return this._http.post(this.BASE_URL+'/users/updateStudent', body,{
       observe:'body'
     });
   }
   
   getStudentRecord(body:any){
-    return this._http.post('http://localhost:3000/users/getStudent', body,{
+    return this._http.post(this.BASE_URL+'/users/getStudent', body,{
       observe:'body'
     });
   }
 
   getStudentID() {
-    return this._http.get('http://localhost:3000/users/getStudentID', {
+    return this._http.get(this.BASE_URL+'/users/getStudentID', {
       observe: 'body'
     }); 
   }
  
   increaseCounter() {
-    return this._http.get('http://localhost:3000/users/increaseCounter', {
+    return this._http.get(this.BASE_URL+'/users/increaseCounter', {
       observe: 'body'
     }); 
   }
 
   changeMonthForId(body:any){
-    return this._http.post('http://localhost:3000/users/changeMonth', body,{
+    return this._http.post(this.BASE_URL+'/users/changeMonth', body,{
       observe:'body'
     });
   }
 
   changeOTP() {
-    return this._http.get('http://localhost:3000/users/changeOTP', {
+    return this._http.get(this.BASE_URL+'/users/changeOTP', {
       observe: 'body'
     }); 
   }
