@@ -1,0 +1,95 @@
+
+
+  <div class="userForms userLogin">
+    <div class="container">
+      
+          <div class="userFormsInside">
+            <h1>Sign Up Here</h1>
+            <form class="userForm" [formGroup]="myForm">
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- <span>User ID</span> -->
+                  <span class="material-symbols-outlined">
+                    mail
+                    </span>
+  
+                  <input
+                    class="userFormTags"
+                    placeholder="Email Id"
+                    type="text"
+                    formControlName="email"
+                  />
+                  <span class="ErrorSpan" *ngIf="isValid('email')">Entered email is invalid</span>
+                </div>
+                <div class="col-md-12">
+                  <!-- <span>User ID</span> -->
+                  <span class="material-symbols-outlined">
+                    mail
+                    </span>
+  
+                  <input
+                    class="userFormTags"
+                    placeholder="username"
+                    type="text"
+                    formControlName="username"
+                  />
+                  <span class="ErrorSpan" *ngIf="isValid('username')">Username is required</span>
+
+                </div>
+                <div class="col-md-12">
+                  <!-- <span>Password</span> -->
+                  <span class="material-symbols-outlined">
+                    key
+                    </span>
+  
+                  <input
+                    class="userFormTags"
+                    placeholder="Password"
+                    type="password"
+                    formControlName="password"
+                  />
+                  <span class="ErrorSpan" *ngIf="isValid('password')">Password is a mandatory field</span>
+
+                </div>
+                <div class="col-md-12">
+                  <!-- <span>Password</span> -->
+                  <span class="material-symbols-outlined">
+                    key
+                    </span>
+  
+                  <input
+                    class="userFormTags"
+                    placeholder="Conform Password"
+                    type="password"
+                    formControlName="cnfpass"
+                  />
+                  <span class="ErrorSpan" *ngIf="isValid('cnfpass')">Password and confirm password should match</span>
+
+                </div>
+                <div class="col-md-12">
+                  <!-- <span>OTP</span> -->
+                  <span class="material-symbols-outlined">
+                    phonelink_lock
+                    </span>
+  
+                  <input class="userFormTags" placeholder="Mobile Number" type="text" formControlName="mobile"/>
+                  <span class="ErrorSpan" *ngIf="isValid('mobile')">Enter correct mobile number</span>
+
+                </div>
+                <div style="text-align:center"> 
+                  {{successMessage}}
+                </div>
+                
+                <div class="col-md-12">
+                  <button class="userFormSubmitBtn signIn" (click)="register()">Sign UP</button>
+                </div>
+
+                
+               
+              </div>
+            </form>
+          </div>
+        </div>
+      
+  </div>
+

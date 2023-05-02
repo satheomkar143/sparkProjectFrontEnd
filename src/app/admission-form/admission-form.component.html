@@ -1,0 +1,216 @@
+<div style="min-height: 100px; max-height: 100px;"></div>
+
+<div class="mainDiv ">
+  <div class="container ">
+      <form class="row g-4" [formGroup]="admissionForm">
+          <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">Student Id</label>
+            <input type="text" class="form-control" id="validationDefault01"  formControlName="studentId" readonly>
+          </div>
+          <div class="col-md-4  offset-md-4">
+            <label for="validationDefault05" class="form-label">Admission Date</label>
+            <input type="date" class="form-control" id="validationDefault05" formControlName="admissionDate" >
+          </div>
+          
+        <h4>Personal Details</h4>
+        <div class="col-md-4">
+          <label for="validationDefault01" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="validationDefault01" placeholder="" formControlName="firstName">
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault02" class="form-label ">Middle Name</label>
+          <input type="text" class="form-control" id="validationDefault02" placeholder=""  formControlName="middleName">
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault02" class="form-label ">Last Name</label>
+          <input type="text" class="form-control" id="validationDefault02" placeholder=""  formControlName="lastName">
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault05" class="form-label">DOB</label>
+          <input type="date" class="form-control" id="validationDefault05" formControlName="DOB">
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault04" class="form-label">Gender</label>
+          <select class="form-select" id="validationDefault04" formControlName="gender" >
+            <option selected disabled value="">Choose...</option>
+            <option>Male</option>
+            <option>Female</option>         
+          </select>
+        </div>
+
+        <h6>Current Address</h6>
+        <div class="col-md-4">
+          <label for="validationDefault04" class="form-label">State</label>
+          <select  class="form-select selll" id="validationDefault04" formControlName="currentState" [(ngModel)]="selectedState" onfocus="this.size=8; " onblur="this.size=1;" onchange="this.size=1; this.blur();">
+            <option selected disabled value="">Choose...</option>
+            <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+          </select>
+ 
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault03" class="form-label">District</label>
+          <input type="text" class="form-control" id="validationDefault03" formControlName="currentDistrict">
+
+          <!-- <select class="form-select selll" id="validationDefault04" formControlName="currentState" [(ngModel)]="selectedDistrict" onfocus="this.size=8; " onblur="this.size=1;" onchange="this.size=1; this.blur();">
+            <option selected disabled value="">Choose...</option>
+            <option  *ngFor="let district of getDistrict(selectedState)" [value]="district">{{ district }}</option>
+
+          </select> -->
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault03" class="form-label">City</label>
+          <input type="text" class="form-control" id="validationDefault03" formControlName="currentCity">
+        </div>
+
+        <h6>Permanent Address</h6>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [checked]="copyValue" (change)="onChange()">
+          <label class="form-check-label" for="defaultCheck1">
+            Same as current address
+          </label>
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault04" class="form-label">State</label>
+          <select class="form-select" id="validationDefault04" formControlName="permanentState" onfocus="this.size=8; " onblur="this.size=1;" onchange="this.size=1; this.blur();" >
+            <option selected disabled value="">Choose...</option>
+            <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+          </select>
+
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault03" class="form-label">District</label>
+          <input type="text" class="form-control" id="validationDefault03" formControlName="permanentDistrict">
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault03" class="form-label">City</label>
+          <input type="text" class="form-control" id="validationDefault03" formControlName="permanentCity">
+        </div>
+
+
+        
+        <div class="col-md-4">
+          <label for="validationDefault05" class="form-label">Personal Number</label>
+          <input type="text" class="form-control" id="validationDefault05" formControlName="personalNumber">
+        </div>
+        <div class="col-md-4">
+          <label for="validationDefault05" class="form-label">Parent/Husband Number</label>
+          <input type="text" class="form-control" id="validationDefault05" formControlName="parentNumber">
+        </div>
+
+          <div class="col-md-4">
+            <label for="validationDefault05" class="form-label">Email</label>
+            <input type="email" class="form-control" id="validationDefault05" formControlName="email">
+          </div>
+        
+      
+          <h4>Education Details</h4>
+
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">Degree</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="degree">
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">Stream</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="stream">
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">Percentage</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="percentage">
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">College name</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="collegeName">
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">University</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="university">
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">Pass out year</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="passOutYear">
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">Backlogs</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="backlogs">
+          </div>
+          <!-- <h1></h1> -->
+          <div class="col-md-4">
+            <label for="validationDefault04" class="form-label">Under Graduated</label>
+            <select class="form-select" id="validationDefault04" formControlName="underGraduated" >
+              <option selected disabled value="">Choose...</option>
+              <option>yes</option>
+              <option>No</option>         
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">Highest qualification</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="highestQualification">
+          </div>
+
+          <h1></h1>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">SSC percentage</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="sscPercentage">
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">HSC percentage</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="hscPercentage">
+          </div>
+
+          <h1></h1>
+          <div class="col-md-12">
+            <label for="validationDefault03" class="form-label">Any other course certification</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="anyOtherCourses">
+          </div>
+
+          <h4>Admission Details</h4>  
+          <div class="col-md-4">
+            <label for="validationDefault04" class="form-label">Select Course</label>
+            <select class="form-select" id="validationDefault04" formControlName="course" >
+              <option selected disabled value="">Choose...</option>
+              <option>Java</option>
+              <option>Python</option>         
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="validationDefault03" class="form-label">Fee Allowed</label>
+            <input type="text" class="form-control" id="validationDefault03" formControlName="feesAllowed">
+          </div>
+
+
+
+
+
+
+         
+          <div class="col-12 my-4">
+            <button class="btn btn-success" type="submit" *ngIf="!updateData" (click)="saveAdmissionData()">Submit form</button>
+            <button class="btn btn-success" type="submit" *ngIf="updateData" data-bs-toggle="modal" data-bs-target="#exampleModalUpdate" >Update data</button>
+            <button class="btn btn-warning mx-2" type="submit" *ngIf="updateData" (click)="addNew()" >Add New</button>
+          </div>
+        </form>
+      </div>
+  </div>
+
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header" >
+        <h1 class="modal-title fs-5 text-center text-danger" id="exampleModalLabel" style="width:100%">Update Student Data</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+       <h6>Do you really want to update this student data</h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal"  (click)="updateStudentData()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

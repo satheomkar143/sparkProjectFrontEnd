@@ -1,0 +1,14 @@
+input, select{
+  background-color: rgba(255, 255, 255, 0.849);
+}
+.mainDiv{
+  background-color: rgb(204, 204, 204);
+}
+
+.selll{
+  position: absolute; width: 350px;
+  z-index: 1;
+}
+.selll:hover{
+  background-color: white;
+}

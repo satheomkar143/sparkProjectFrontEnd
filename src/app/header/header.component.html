@@ -1,0 +1,44 @@
+
+    <!-- ///////  nav bar and first image div   /////// -->
+    <header class="sticky">
+      <div class="logo"><img src="../../assets/images/logo.png" alt=""></div>
+      <div class="toggle" *ngIf="myService.successfulLogin"></div>
+      <nav *ngIf="myService.successfulLogin">
+          <ul>
+              <li (click)="showFilter(false)" class="menuLi"><a [routerLink]="['home']">Home</a></li>
+              <li (click)="showFilter(false)" class="menuLi"><a [routerLink]="['admission']">Admission</a></li>
+              <li (click)="showFilter(true)"><a [routerLink]="['getData']">Get Data</a></li>
+              <li *ngIf="myService.filterShow" data-bs-toggle="modal" data-bs-target="#exampleModal" id="filters">Filters</li>
+              <li (click)="showFilter(false)" class="menuLi"><a [routerLink]="['enquiry']">Enquiry</a></li>
+              <li class="menuLi"  data-bs-toggle="modal" data-bs-target="#exampleModalLog"><a >Log Out</a></li>          
+          </ul>
+      </nav>
+  </header>
+
+
+
+
+
+  
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header" >
+          <h1 class="modal-title fs-5 text-center text-danger" id="exampleModalLabel" style="width:100%">Logout Application</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+         <h6>Do you really want to Logout the application</h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="logout()">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  

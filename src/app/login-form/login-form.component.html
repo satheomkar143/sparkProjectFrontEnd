@@ -1,0 +1,74 @@
+
+
+  <div class="userForms userLogin">
+    <div class="container">
+      
+          <div class="userFormsInside">
+            <h1>Login Here</h1>
+            <form class="userForm" [formGroup]="loginForm">
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- <span>User ID</span> -->
+                  <span class="material-symbols-outlined">
+                    mail
+                    </span>
+  
+                  <input
+                    class="userFormTags"
+                    placeholder="Email Id"
+                    type="text"
+                    formControlName="email"
+                  />
+                  <span class="ErrorSpan"  *ngIf="isValid('email')">Entered email is invalid</span>
+
+                </div>
+                <div class="col-md-12">
+                  <!-- <span>Password</span> -->
+                  <span class="material-symbols-outlined">
+                    key
+                    </span>
+  
+                  <input
+                    class="userFormTags"
+                    placeholder="Password"
+                    type="password"
+                    formControlName="password"
+                  />
+                  <span class="ErrorSpan" *ngIf="isValid('password')">Enter correct password</span>
+
+                </div>
+                <div class="col-md-12">
+                  <!-- <span>OTP</span> -->
+                  <div class="d-flex ">
+
+                    <span class="material-symbols-outlined">
+                      phonelink_lock
+                    </span>
+                    <div class="ms-3 p-2 otpBtn "  (click)="register()">Send OTP</div>
+                  </div>
+  
+                  <input class="userFormTags" placeholder="OTP" type="text" formControlName="otp"/>
+
+                  <span class="ErrorSpan" *ngIf="isValid('otp')">Enter correct OTP</span>
+
+                </div>
+                <div class="col-md-12">
+                  <!-- <span>OTP</span> -->
+                  <span class="material-symbols-outlined">
+                    qr_code_2
+                    </span>
+  
+                  <input class="userFormTags" placeholder="security code" type="password" formControlName="securityCode"/>
+                  <span class="ErrorSpan" *ngIf="isValid('securityCode')">Enter correct security code</span>
+
+                </div>
+                <div class="col-md-12">
+                  <button class="userFormSubmitBtn signIn" (click)="login()">Sign In</button>
+                </div>
+               
+              </div>
+            </form>
+          </div>
+        </div>
+      
+  </div>
