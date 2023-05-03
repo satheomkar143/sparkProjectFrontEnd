@@ -19,7 +19,7 @@ button {
   align-items: center !important;
   justify-content: center !important;
   background-image: url(../../assets/images/background.jpg);
-  min-height: 90vh;
+  min-height: 100vh;
   margin-top:80px ;
 }
 

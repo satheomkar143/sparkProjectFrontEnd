@@ -2,7 +2,7 @@
     <!-- ///////  nav bar and first image div   /////// -->
     <header class="sticky">
       <div class="logo"><img src="../../assets/images/logo.png" alt=""></div>
-      <div class="toggle" *ngIf="myService.successfulLogin"></div>
+      <div class="toggle"></div>
       <nav *ngIf="myService.successfulLogin">
           <ul>
               <li (click)="showFilter(false)" class="menuLi"><a [routerLink]="['home']">Home</a></li>

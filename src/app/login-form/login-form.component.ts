@@ -70,7 +70,7 @@ export class LoginFormComponent implements OnInit {
           this._router.navigate(['/home']);
           setTimeout(() => {
             this.changeOTP();
-          }, 60000);
+          }, 10000);
         },
         (error) => {
           alert(error.error.message);
