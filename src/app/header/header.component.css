@@ -171,3 +171,18 @@ nav ul li a:hover, #filters:hover
         
     }
 }
+
+@media (max-width: 425px)
+{
+  header.sticky .logo
+  {
+    left: 20px;
+  }
+  header .logo img{
+    width: 200px;
+  }
+  header.sticky .toggle
+    {
+        right: 20px;
+    }
+}
