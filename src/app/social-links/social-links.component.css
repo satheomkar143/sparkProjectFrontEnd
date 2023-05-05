@@ -1,0 +1,49 @@
+.wrapper {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background: #e59500;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+}
+
+
+ul li .socialLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #fff;
+}
+ul li .socialLogo:hover {
+  font-size: 30px;
+}
+
+ul li.facebook{
+  background: #3b5998;
+}
+
+ul li.twitter{
+  background: #00aced;
+}
+
+ul li.instagram{
+  background: #bc2a8d;
+}
+
+ul li.google{
+  background: #dd4b39;
+}

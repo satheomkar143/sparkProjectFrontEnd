@@ -19,6 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { MyServiceService } from './my-service.service';
 import { HttpClientModule} from '@angular/common/http'
+import { HashLocationStrategy, LocationStrategy} from '@angular/common';
+import { StudentPhotoComponent } from './student-photo/student-photo.component';
+import { SocialLinksComponent } from './social-links/social-links.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { HttpClientModule} from '@angular/common/http'
     AdmissionFormComponent,
     GetStudentsDataComponent,
     PageNotFoundComponent,
-    RegisterComponent
+    RegisterComponent,
+    StudentPhotoComponent,
+    SocialLinksComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,7 @@ import { HttpClientModule} from '@angular/common/http'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [MyServiceService],
+  providers: [MyServiceService, {provide:LocationStrategy, useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

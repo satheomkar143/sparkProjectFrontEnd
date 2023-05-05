@@ -2,13 +2,22 @@ input, select{
   background-color: rgba(255, 255, 255, 0.849);
 }
 .mainDiv{
-  background-color: rgb(204, 204, 204);
+  /* background-color: rgb(204, 204, 204); */
+  background-color: aliceblue;
+}
+.subMainDiv{
+  /* background-color: red; */
+  position: relative;
 }
 
-.selll{
-  position: absolute; width: 350px;
-  z-index: 1;
+.displayAt{
+  display: none;
+  margin: 0 !important;
+  padding: 0 !important;
 }
-.selll:hover{
-  background-color: white;
+
+@media (max-width:767px){
+  .displayAt{
+    display: block;
+  }
 }

@@ -222,6 +222,6 @@ getDistrict(dist:any){
   }
 }
 
-
+studEmail :string=""
 
 }

@@ -23,10 +23,11 @@ export class LoginFormComponent implements OnInit {
 
   register() {
     let user = {
-      name: 'omkar',
-      email: 'omkarsathe567@gmail.com',
+      name: "SPARK Institute",
+      email: this.loginForm.get("email")?.value
     };
 
+    if(user.email){
     this._myService.sendEmail(user).subscribe(
       (data) => {
         alert('OTP send Successfully !');
@@ -35,6 +36,9 @@ export class LoginFormComponent implements OnInit {
         alert('Error in send email');
       }
     );
+    }else{
+      alert('Enter email address');
+    }
   }
 
   constructor(
