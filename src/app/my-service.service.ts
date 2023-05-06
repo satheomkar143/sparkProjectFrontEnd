@@ -33,8 +33,8 @@ export class MyServiceService {
     passOutYear: '',
   };
 
-  // BASE_URL = "https://spark-management-api.onrender.com"
-  BASE_URL = "http://localhost:3000"
+  BASE_URL = "https://spark-management-api.onrender.com"
+  // BASE_URL = "http://localhost:3000"
 
   constructor(private _http: HttpClient) { }
   
