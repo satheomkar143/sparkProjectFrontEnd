@@ -2,7 +2,7 @@
 
 <div class="mainDiv ">
   <div class="container subMainDiv">
-      <app-student-photo></app-student-photo>
+      <app-student-photo [studentID]="admissionForm.get('studentId')?.value" (newStudentPhotoUrl)="updateStudentProfileValue($event)"  ></app-student-photo>
       <form class="row g-4" [formGroup]="admissionForm">
           <div class="col-md-4 col-sm-6 col-6">
             <label for="validationDefault01" class="form-label">Student Id</label>
@@ -13,7 +13,6 @@
             <label for="validationDefault05" class="form-label">Admission Date</label>
             <input type="date" class="form-control" id="validationDefault05" formControlName="admissionDate" >
           </div>
-          
         <h4>Personal Details</h4>
         <div class="col-md-4">
           <label for="validationDefault05" class="form-label">DOB</label>
@@ -201,8 +200,6 @@
         </form>
       </div>
   </div>
-
-
   <app-social-links [studentEmail]="studEmail"></app-social-links>
 
 

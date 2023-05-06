@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MyServiceService } from '../my-service.service';
 import {
@@ -10,6 +10,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { formatDate } from '@angular/common';
 import { filter, take } from 'rxjs/operators';
+import { StudentPhotoComponent } from '../student-photo/student-photo.component';
 
 @Component({
   selector: 'app-admission-form',
@@ -18,6 +19,7 @@ import { filter, take } from 'rxjs/operators';
 })
 export class AdmissionFormComponent implements OnInit {
   admissionForm: FormGroup;
+  @ViewChild(StudentPhotoComponent) studentPhotoComponent: StudentPhotoComponent | undefined;
 
   constructor(
     private myService: MyServiceService,
@@ -67,6 +69,7 @@ export class AdmissionFormComponent implements OnInit {
       anyOtherCourses: new FormControl(null, Validators.required),
       course: new FormControl(null, Validators.required),
       feesAllowed: new FormControl(null, Validators.required),
+      studentProfilePhoto : new FormControl(null)
     });
 
     this.showDataForUpdate();
@@ -108,23 +111,26 @@ export class AdmissionFormComponent implements OnInit {
     );
   }
 
-  saveAdmissionData() {
+ async saveAdmissionData() {
     if (this.admissionForm.valid) {
-      this.myService.submitAdmissionForm(this.admissionForm.value).subscribe(
+     this.studentPhotoComponent?.onSubmit( () => {
+       console.log(this.admissionForm.value)
+     this.myService.submitAdmissionForm(this.admissionForm.value).subscribe(
         (data) => {
           alert('data successfully added'),
             this.myService.increaseCounter().subscribe(
               (data) => {
                 this.addNew();
               },
-              (error) =>
-                alert("Something went wrong. Data can't added to database")
+              (error) => alert("Something went wrong. Data can't added to database")
             );
         },
         (error) => alert("Something went wrong. Data can't added to database")
       );
+    })
     } else {
       alert('Please fill all the Fields');
+      console.log(      this.admissionForm.errors        )
     }
   }
 
@@ -140,6 +146,8 @@ export class AdmissionFormComponent implements OnInit {
             const externalValue = data;
             this.admissionForm.patchValue(externalValue);
             this.updateData = true;
+            console.log(this.admissionForm.get("studentProfilePhoto")?.value)
+            this.studentPhotoComponent?.setImagePathForShowData(this.admissionForm.get('studentProfilePhoto')?.value)
           },
           (error) =>
             alert("Something went wrong. Data can't be fetched from database")
@@ -151,12 +159,15 @@ export class AdmissionFormComponent implements OnInit {
 
   updateStudentData() {
     if (this.admissionForm.valid) {
+      this.studentPhotoComponent?.onSubmit( () => {
+
       let myObject = { ...this.admissionForm.value, id: this.localID };
 
       this.myService.updateStudentRecord(myObject).subscribe(
         (data) => alert('Student data successfully updated'),
         (error) => alert('error in update data')
       );
+      })
     } else {
       alert("Something went wrong. Data can't updated to database");
     }
@@ -173,6 +184,7 @@ export class AdmissionFormComponent implements OnInit {
     const externalValue = { admissionDate: date };
     this.admissionForm.patchValue(externalValue);
     this.updateData = false;
+    this.studentPhotoComponent?.setImagePathForShowData(this.admissionForm.get('studentProfilePhoto')?.value)
   }
 
   copyValue: boolean = false;
@@ -223,5 +235,10 @@ getDistrict(dist:any){
 }
 
 studEmail :string=""
+
+updateStudentProfileValue(value: string) {
+      this.admissionForm.get("studentProfilePhoto")?.setValue(value);
+      // console.log("update value", this.admissionForm.get("studentProfilePhoto")?.value)
+}
 
 }

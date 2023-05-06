@@ -7,7 +7,8 @@ import { formatDate } from '@angular/common';
   providedIn: 'root'
 })
 export class MyServiceService {
-  successfulLogin:boolean=true;//------------------------------------------
+
+  successfulLogin:boolean=false;//------------------------------------------
   filterShow:boolean=false;
 
   showStudentVar:String="";
@@ -32,8 +33,8 @@ export class MyServiceService {
     passOutYear: '',
   };
 
-  BASE_URL = "https://spark-management-api.onrender.com"
-  // BASE_URL = "http://localhost:3000"
+  // BASE_URL = "https://spark-management-api.onrender.com"
+  BASE_URL = "http://localhost:3000"
 
   constructor(private _http: HttpClient) { }
   
@@ -60,6 +61,12 @@ export class MyServiceService {
 
   sendEmail(body:any){
     return this._http.post(this.BASE_URL+'/users/sendmail', body,{
+      observe:'body'
+    });
+  }
+
+  sendSocialLinkEmail(body:any) {
+    return this._http.post(this.BASE_URL+'/users/sendSocialLinkMail', body,{
       observe:'body'
     });
   }
@@ -128,6 +135,12 @@ export class MyServiceService {
     return this._http.get(this.BASE_URL+'/users/changeOTP', {
       observe: 'body'
     }); 
+  }
+
+  saveStudentPhoto(body:any){
+    return this._http.post(this.BASE_URL+'/users/saveStudentPhoto', body,{
+      observe:'body'
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MyServiceService } from '../my-service.service';
 
 @Component({
   selector: 'app-social-links',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SocialLinksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _myService : MyServiceService) { }
 
   ngOnInit(): void {
   }
@@ -16,23 +17,23 @@ export class SocialLinksComponent implements OnInit {
 
   sendSocialLink() {
     let user = {
-      name: 'omkar',
-      email: 'omkarsathe567@gmail.com',
+      name: 'SPARK Institute',
+      email: this.studentEmail,
     };
 
     if(this.studentEmail){
-      alert(this.studentEmail)
+      this._myService.sendSocialLinkEmail(user).subscribe(
+        (data) => {
+          alert('social links send Successfully !');
+        },
+        (err) => {
+          alert('Error in send email. please try again.');
+        }
+      );
     }else{
-      alert("please provide a student email")
+      alert("please provide a student email address.")
     }
 
-    // this._myService.sendEmail(user).subscribe(
-    //   (data) => {
-    //     alert('OTP send Successfully !');
-    //   },
-    //   (err) => {
-    //     alert('Error in send email');
-    //   }
-    // );
+    
   }
 }

@@ -28,7 +28,7 @@ ul li .socialLogo {
   font-size: 20px;
   color: #fff;
 }
-ul li .socialLogo:hover {
+ul li:hover .socialLogo {
   font-size: 30px;
 }
 

@@ -1,4 +1,8 @@
 <div class="studentPhotoDiv">
-  <img src="../../assets/images/user.png" alt="">
-  <i class="fa-solid fa-camera changePhoto"></i>
+  <!-- <img src="../../assets/images/user.png" alt=""> -->
+  <img [src]="imgSrc" alt="" onError="this.src = '../../assets/images/user.png'">
+  <input type="file" name="image" id="image" accept="image/*" hidden (change)="selectImage($event)">
+  <label for="image">
+    <i class="fa-solid fa-camera changePhoto"></i>
+  </label>
 </div>
