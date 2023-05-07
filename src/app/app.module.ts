@@ -21,7 +21,9 @@ import { MyServiceService } from './my-service.service';
 import { HttpClientModule} from '@angular/common/http'
 import { HashLocationStrategy, LocationStrategy} from '@angular/common';
 import { StudentPhotoComponent } from './student-photo/student-photo.component';
-import { SocialLinksComponent } from './social-links/social-links.component'
+import { SocialLinksComponent } from './social-links/social-links.component';
+import { GetEnquiryDataComponent } from './get-enquiry-data/get-enquiry-data.component';
+import { PlacedStudentComponent } from './placed-student/placed-student.component'
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { SocialLinksComponent } from './social-links/social-links.component'
     PageNotFoundComponent,
     RegisterComponent,
     StudentPhotoComponent,
-    SocialLinksComponent
+    SocialLinksComponent,
+    GetEnquiryDataComponent,
+    PlacedStudentComponent
   ],
   imports: [
     BrowserModule,

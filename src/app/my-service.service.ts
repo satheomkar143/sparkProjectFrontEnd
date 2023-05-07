@@ -12,6 +12,7 @@ export class MyServiceService {
   filterShow:boolean=false;
 
   showStudentVar:String="";
+  showEnquiryVar:string="";
 
   studentObject: any;
 
@@ -139,6 +140,66 @@ export class MyServiceService {
 
   saveStudentPhoto(body:any){
     return this._http.post(this.BASE_URL+'/users/saveStudentPhoto', body,{
+      observe:'body'
+    });
+  }
+
+  getEnquiryNo() {
+    return this._http.get(this.BASE_URL+'/users/getEnquiryNo', {
+      observe: 'body'
+    }); 
+  }
+
+  getEnquiryRecord(body:any){
+    return this._http.post(this.BASE_URL+'/users/getEnquiry', body,{
+      observe:'body'
+    });
+  }
+
+  submitEnquiryForm(body:any){
+    return this._http.post(this.BASE_URL+'/users/enquiryForm', body,{
+      observe:'body'
+    });
+  }
+
+  increaseEnquiryNo() {
+    return this._http.get(this.BASE_URL+'/users/increaseEnquiryNo', {
+      observe: 'body'
+    }); 
+  }
+
+  FetchAllEnquiries() {
+    return this._http.get(this.BASE_URL+'/users/FetchAllEnquiries', {
+      observe: 'body'
+    }); 
+  }
+
+  changePendingStatus(body:any){
+    return this._http.post(this.BASE_URL+'/users/changePendingStatus', body,{
+      observe:'body'
+    })
+  }
+
+  deleteEnquiry(body:any){
+    return this._http.post(this.BASE_URL+'/users/deleteEnquiry', body,{
+      observe:'body'
+    });
+  }
+
+  savePlacedStudent(body:any){
+    return this._http.post(this.BASE_URL+'/users/savePlacedStudent', body,{
+      observe:'body'
+    });
+  }
+
+  getAllPlacedStudent(){
+    return this._http.get(this.BASE_URL+'/users/getAllPlacedStudent', {
+      observe: 'body'
+    }); 
+  }
+
+  deletePlacedStudent(body:any){
+    return this._http.post(this.BASE_URL+'/users/deletePlacedStudent', body,{
       observe:'body'
     });
   }

@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
       $('.toggle').click(function () {
         $('.toggle').toggleClass('active');
         $('nav').toggleClass('active');
-        console.log("dfsdfsd")
       });
 
       $('.menuLi').click(function () {

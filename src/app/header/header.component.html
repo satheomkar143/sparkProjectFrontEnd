@@ -10,6 +10,7 @@
               <li (click)="showFilter(true)"><a [routerLink]="['getData']">Get Data</a></li>
               <li *ngIf="myService.filterShow" data-bs-toggle="modal" data-bs-target="#exampleModal" id="filters">Filters</li>
               <li (click)="showFilter(false)" class="menuLi"><a [routerLink]="['enquiry']">Enquiry</a></li>
+              <li (click)="showFilter(false)" class="menuLi"><a [routerLink]="['getEnquiry']">All Enquiries</a></li>
               <li class="menuLi"  data-bs-toggle="modal" data-bs-target="#exampleModalLog"><a >Log Out</a></li>          
           </ul>
       </nav>

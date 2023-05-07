@@ -1,2 +1,112 @@
-<div style="min-height: 100px; max-height: 100px;"></div>
-<p>enquiry-form works!</p>
+<div style="min-height: 100px; max-height: 100px"></div>
+
+<div class="mainDiv">
+  <div class="container ">
+    <form class="row g-4" [formGroup]="enquiryForm">
+      <div class="col-md-4 col-sm-6 col-6">
+        <label class="form-label">Enquiry No.</label>
+        <input type="text" class="form-control" formControlName="enquiryNo" readonly>
+      </div>
+      <div class="col-md-4 col-sm-6 col-6 offset-md-4">
+        <label class="form-label">Enquiry Date</label>
+        <input type="date" class="form-control" formControlName="enquiryDate">
+      </div>
+
+      <div class="col-md-4  ">
+        <label  class="form-label">First Name</label>
+        <input type="text" class="form-control" formControlName="firstName">
+      </div>
+      <div class="col-md-4">
+        <label  class="form-label ">Middle Name</label>
+        <input type="text" class="form-control" formControlName="middleName">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName">
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label ">Contact Number</label>
+        <input type="text" class="form-control" formControlName="contactNumber">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">Email Address</label>
+        <input type="text" class="form-control" formControlName="email">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">Native Place</label>
+        <input type="text" class="form-control" formControlName="nativePlace">
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label ">Education</label>
+        <input type="text" class="form-control" formControlName="education">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">Stream</label>
+        <input type="text" class="form-control" placeholder="If not type NA" formControlName="stream">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">Marks Obtained</label>
+        <input type="text" class="form-control" placeholder="If pursuing type Pursuing" formControlName="marks">
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label ">College Name</label>
+        <input type="text" class="form-control" formControlName="collegeName">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">College City</label>
+        <input type="text" class="form-control" formControlName="collegeCity">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">Pass out Year</label>
+        <input type="text" class="form-control" placeholder="currently studying type NA" formControlName="passOutYear">
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label ">Technology Learned</label>
+        <input type="text" class="form-control" placeholder="If not type NA" formControlName="technologyLearned">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">Any courses/ certification</label>
+        <input type="text" class="form-control" placeholder="If not type NA" formControlName="coursesOrCertification">
+      </div>
+     
+      <h3 class="text-center">Academic Details</h3>
+
+      <div class="col-md-4">
+        <label class="form-label ">10<sup>th</sup> %</label>
+        <input type="text" class="form-control" formControlName="sscPercentage">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">12<sup>th</sup>/ Diploma %</label>
+        <input type="text" class="form-control" formControlName="hscPercentage">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">Graduation %</label>
+        <input type="text" class="form-control" placeholder="If pursuing type Pursuing" formControlName="graduationPercentage">
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label ">Post Graduation %</label>
+        <input type="text" class="form-control" placeholder="If not type NA" formControlName="postGraduationPercentage">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label ">Gap in Academic</label>
+        <input type="text" class="form-control" placeholder="If not type 0" formControlName="academicGap">
+      </div>
+
+      <div class="col-sm-12 col-12">
+        <label class="form-label ">Any Query</label>
+        <input type="text" class="form-control" placeholder="If not type NA" formControlName="anyQuery">
+      </div>
+
+      <div class="col-12 my-4">
+        <button class="btn btn-success" type="submit" *ngIf="!enquiryData"  (click)="saveEnquiryData()">Submit form</button>
+        <button class="btn btn-success" type="submit" *ngIf="enquiryData"  routerLink="/getEnquiry">Back</button>
+        <button class="btn btn-warning mx-2" type="submit" *ngIf="enquiryData" (click)="addNew()" >Add New</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+<div style="min-height: 100px; max-height: 100px;"></div>
+
+<div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-start container-fluid">
+    <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#placedModal">Add New</button>
+  </div>
+
+  <div class="d-flex justify-content-end container-fluid">
+    <button class="btn btn-success btn-sm" (click)="downloadPlacedStud()">Download</button>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <br>
+  <div class="table-responsive">
+
+  <table class="table table-dark table-striped"  style="max-width: 100vw;">
+      <thead align="center">
+        <tr>
+          <th scope="col">Student No</th>
+          <th scope="col">Admission Date</th>
+          <th scope="col">Placed Date</th>
+          <th scope="col">Name</th>
+          <th scope="col">Contact</th>
+          <th scope="col">Email ID</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Company Location</th>
+          <th scope="col">Position</th>
+          <th scope="col">Salary</th>       
+          <th scope="col">Action</th>       
+        </tr>
+      </thead>
+      <tbody align="center">
+        <tr *ngFor="let i of placedStudents">
+          <td>{{i.studentId}}</td>
+          <td>{{i.admissionDate}}</td>
+          <td>{{i.PlacedDate}}</td>
+          <td class="text-truncate" style="max-width: 150px;">{{i.firstName}} {{i.middleName}} {{i.lastName}}</td>
+          <td>{{i.personalNumber}}</td>
+          <td class="text-truncate" style="max-width: 150px;">{{i.email}}</td>       
+          <td class="text-truncate" style="max-width: 150px;">{{i.companyName}}</td>
+          <td class="text-truncate" style="max-width: 150px;">{{i.companyLocation}}</td>
+          <td class="text-truncate" style="max-width: 150px;">{{i.position}}</td>
+          <td class="text-truncate" style="max-width: 150px;">{{i.salary}}</td>  
+          <td><button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalDeletePlaced" (click)="setDeleteVar(i._id)">Delete</button></td>         
+        </tr>
+      </tbody> 
+    </table>
+</div>
+</div>
+
+
+<!-- ------------modal----------- -->
+<div class="modal fade" id="placedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header" >
+        <h1 class="modal-title fs-5 text-center text-danger" id="exampleModalLabel" >New Placed Student</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-4">
+          <div class="col-sm-6">
+           <div>Student ID</div>
+           <input type="text" name="stdId" id="" [(ngModel)]="studentData.studentId">
+        </div>
+          <div class="col-sm-6">
+           <div>Placed Date</div>
+           <input  type="date" name="placedDate" id="" [(ngModel)]="studentData.PlacedDate">
+           </div>
+           
+          <div class="mt-4 col-sm-6 col-12">
+           <div>Company Name</div>
+           <input type="text" name="ComName" id="" [(ngModel)]="studentData.companyName">
+        </div>
+          <div class="mt-4 col-sm-6 col-12">
+           <div>Company Location</div>
+           <input type="text" name="comLoc" id="" [(ngModel)]="studentData.companyLocation">
+           </div>
+           <div class="mt-4 col-sm-6 col-12">
+            <div>Position</div>
+            <input type="text" name="position" id="" [(ngModel)]="studentData.position">
+            </div>
+          <div class="mt-4 col-sm-6 col-12">
+           <div>Salary</div>
+           <input type="text" name="salary" id="" [(ngModel)]="studentData.salary">
+           </div>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal" (click)="savePlacedStudent()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalDeletePlaced" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" >
+      <div class="modal-content">
+        <div class="modal-header" >
+          <h1 class="modal-title fs-5 text-center text-danger" id="exampleModalLabel" style="width:100%">Delete Student Data</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+         <h6>Do you really want to Delete this student data</h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="deletePlacedStudent()" >Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>

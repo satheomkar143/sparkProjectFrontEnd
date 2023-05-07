@@ -34,7 +34,6 @@ export class AdmissionFormComponent implements OnInit {
     );
 
     let date = formatDate(new Date(), 'yyyy-MM-dd', 'en');
-    console.log(date);
 
     this.getStudentID();
 
@@ -114,7 +113,7 @@ export class AdmissionFormComponent implements OnInit {
  async saveAdmissionData() {
     if (this.admissionForm.valid) {
      this.studentPhotoComponent?.onSubmit( () => {
-       console.log(this.admissionForm.value)
+      //  console.log(this.admissionForm.value)
      this.myService.submitAdmissionForm(this.admissionForm.value).subscribe(
         (data) => {
           alert('data successfully added'),
@@ -130,7 +129,7 @@ export class AdmissionFormComponent implements OnInit {
     })
     } else {
       alert('Please fill all the Fields');
-      console.log(      this.admissionForm.errors        )
+      // console.log(      this.admissionForm.errors        )
     }
   }
 
@@ -146,7 +145,7 @@ export class AdmissionFormComponent implements OnInit {
             const externalValue = data;
             this.admissionForm.patchValue(externalValue);
             this.updateData = true;
-            console.log(this.admissionForm.get("studentProfilePhoto")?.value)
+            // console.log(this.admissionForm.get("studentProfilePhoto")?.value)
             this.studentPhotoComponent?.setImagePathForShowData(this.admissionForm.get('studentProfilePhoto')?.value)
           },
           (error) =>

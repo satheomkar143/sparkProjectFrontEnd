@@ -13,6 +13,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
+import { GetEnquiryDataComponent } from './get-enquiry-data/get-enquiry-data.component';
+import { PlacedStudentComponent } from './placed-student/placed-student.component';
 
 const routes: Routes = [
   // redirect route
@@ -25,7 +27,9 @@ const routes: Routes = [
   // {path:'courses', component:CoursesComponent},
   {path:'enquiry', component:EnquiryFormComponent},
   {path:'getData', component:GetStudentsDataComponent},
+  {path:'getEnquiry', component:GetEnquiryDataComponent},
   {path:'login', component:LoginFormComponent},
+  {path: "placed", component:PlacedStudentComponent},
   // {path:'signUp', component:SignUpFormComponent},
   {path:'@3k@r9595/register', component:RegisterComponent},
 

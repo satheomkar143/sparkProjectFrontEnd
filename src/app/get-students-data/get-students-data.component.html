@@ -9,7 +9,7 @@
   <!-- <h1 style="text-align: center;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;color: blue;"></h1> -->
   <div class="table-responsive">
 
-  <table class="table table-dark table-striped"  style="width: 100vw;">
+  <table class="table table-dark table-striped"  style="max-width: 100vw;">
       <thead align="center">
         <tr>
           <th scope="col">Student ID</th>
@@ -64,15 +64,15 @@
         <h1 class="modal-title fs-5 text-center text-danger" id="exampleModalLabel" style="">Search Data</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body filterModelDiv">
         <div class="row">
           <div class="col-md-4 col-sm-6 col-12">
            <div>Start Date</div>
-           <input style="width:220px" type="date" name="sdt" id="" [(ngModel)]="this.myService.StudentFilter.startDate">
+           <input  type="date" name="sdt" id="" [(ngModel)]="this.myService.StudentFilter.startDate">
         </div>
           <div class="col-md-4 col-sm-6 col-12">
            <div>End Date</div>
-           <input style="width:220px" type="date" name="edt" id="" [(ngModel)]="this.myService.StudentFilter.EndDate">
+           <input  type="date" name="edt" id="" [(ngModel)]="this.myService.StudentFilter.EndDate">
            </div>
            <div class="col-md-4 col-12">
             <div>Std Id</div>
@@ -98,7 +98,7 @@
            </div>
           <div class="col-md-4 mt-4 col-sm-6 col-12">
            <div>Course</div>
-           <select name="course" id="" style="width:220px" [(ngModel)]="this.myService.StudentFilter.course">
+           <select name="course" id="" [(ngModel)]="this.myService.StudentFilter.course">
             <option value="">Choose Course...</option>
             <option value="Full Stack JAVA">Full Stack JAVA</option>
             <option value="Full Stack Python">Full Stack Python</option>
@@ -108,7 +108,7 @@
            </div>
           <div class="col-md-4 mt-4 col-sm-6 col-12">
            <div>Degree</div>
-           <select name="degree" id="" style="width:220px" [(ngModel)]="this.myService.StudentFilter.degree">
+           <select name="degree" id=""  [(ngModel)]="this.myService.StudentFilter.degree">
             <option value="">Choose degree...</option>
             <option value="BCA">BCA</option>
             <option value="Bsc">Bsc</option>
